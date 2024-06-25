@@ -17,11 +17,11 @@ const Footer = () => {
           </div>
           <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3 quick-links">
             <h5 className="text-uppercase mb-4 font-weight-bold">Quick Links</h5>
-            <p><a href="#">Home</a></p>
-            <p><a href="#">About Us</a></p>
-            <p><a href="#">Services</a></p>
-            <p><a href="#">Careers</a></p>
-            <p><a href="#">Contact Us</a></p>
+            <p><a href=" #">Home</a></p>
+            <p><a href=" #">About Us</a></p>
+            <p><a href="/Services">Services</a></p>
+            <p><a href=" #">Careers</a></p>
+            <p><a href=" #">Contact Us</a></p>
           </div>
           <div className="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
             <h5 className="text-uppercase mb-4 font-weight-bold">Contact</h5>

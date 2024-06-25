@@ -1,0 +1,24 @@
+.container {
+    display: flex;
+  align-items: flex-start;
+
+}
+
+.images {
+    width: 50%;
+    float: right;
+    margin: 0 0 5 5px;
+
+}
+
+.titles {
+    text-align: left;
+}
+
+.service-description {
+    text-align: left;
+    font-size: medium;
+}
+.images:hover {
+    transform: scale(1.01);
+}

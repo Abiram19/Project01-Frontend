@@ -5,12 +5,12 @@ const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg fixed-top">
       <div className="container">
-      <a className="navbar-brand me-auto" href="#">
+        <a className="navbar-brand me-auto" href=" #">
           <img src="/assets/logo.png" alt="AutoCare Lanka Logo" className="navbar-logo"/>
         </a>
-      <div
-          class="offcanvas offcanvas-end"
-          tabindex="-1"
+        <div
+          className="offcanvas offcanvas-end"
+          tabIndex="-1"
           id="offcanvasNavbar"
           aria-labelledby="offcanvasNavbarLabel"
         >
@@ -23,24 +23,24 @@ const Navbar = () => {
           <div className="offcanvas-body">
             <ul className="navbar-nav justify-content-center flex-grow-1 pe-3">
               <li className="nav-item">
-                <a className="nav-link mx-lg-2" href="#"><b>Home</b></a>
+                <a className="nav-link mx-lg-2" href="/"><b>Home</b></a>
               </li>
               <li className="nav-item">
-                <a className="nav-link mx-lg-2" href="#"><b>About Us</b></a>
+                <a className="nav-link mx-lg-2" href=" #"><b>About Us</b></a>
               </li>
               <li className="nav-item">
-                <a className="nav-link mx-lg-2" href="#"><b>Services</b></a>
+                <a className="nav-link mx-lg-2" href="/Services"><b>Services</b></a>
               </li>
               <li className="nav-item">
-                <a className="nav-link mx-lg-2" href="#"><b>Careers</b></a>
+                <a className="nav-link mx-lg-2" href=" #"><b>Careers</b></a>
               </li>
               <li className="nav-item">
-                <a className="nav-link mx-lg-2" href="#"><b>Contact Us</b></a>
+                <a className="nav-link mx-lg-2" href=" #"><b>Contact Us</b></a>
               </li>
             </ul>
           </div>
         </div>
-        <a href="#" className="login-button">Login</a>
+        <a href=" #" className="login-button">Login</a>
         <button className="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar">
           <span className="navbar-toggler-icon"></span>
         </button>

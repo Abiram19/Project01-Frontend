@@ -17,6 +17,7 @@ import Service13 from './components/service/service13';
 import Service14 from './components/service/service14';
 import Layout from './components/Layout';
 import Home from './components/Home';
+import About from './components/About';
 import './App.css';
 
 const App = () => {
@@ -24,6 +25,7 @@ const App = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Layout><Home /></Layout>} />
+        <Route path="about" element={<Layout><About /></Layout>} />
         <Route path="/services" element={<Layout><Services /></Layout>} />
         <Route path="/service1" element={<Layout><Service1 /></Layout>} />
         <Route path="/service2" element={<Layout><Service2 /></Layout>} />

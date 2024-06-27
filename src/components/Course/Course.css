@@ -1,0 +1,33 @@
+.container {
+  text-align: left;
+}
+.course-container {
+  position: relative;
+  overflow: hidden; /* Ensures the image doesn't overflow the container */
+}
+
+.course-image {
+  transition: transform 0.3s ease; /* Smooth transition for the image */
+  height: auto;
+  width: 100%;
+}
+
+.course-image:hover {
+  transform: scale(1.1); /* Scale the image slightly when hovered */
+}
+
+.course-overlay-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  opacity: 0;
+}
+
+.course-container:hover .course-overlay-text {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1.05);
+}

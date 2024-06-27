@@ -18,6 +18,16 @@ import Service14 from './components/service/service14';
 import Layout from './components/Layout';
 import Home from './components/Home';
 import About from './components/About';
+import Contactus from './components/Contactus';
+import CareerJOB from './components/career/CareerJOB';
+import CareerLife from './components/career/CareerLife';
+import CareerPeople from './components/career/CareerPeople';
+import Career1 from './components/career/Career1';
+import Course from './components/career/Course';
+import Course1 from './components/Course/Course1';
+import Course2 from './components/Course/Course2';
+import Course3 from './components/Course/Course3';
+import Course4 from './components/Course/Course4';
 import './App.css';
 
 const App = () => {
@@ -41,6 +51,16 @@ const App = () => {
         <Route path="/service12" element={<Layout><Service12 /></Layout>} />
         <Route path="/service13" element={<Layout><Service13 /></Layout>} />
         <Route path="/service14" element={<Layout><Service14 /></Layout>} />
+        <Route path="/contactus" element={<Layout><Contactus /></Layout>} />
+        <Route path="/career" element={<Layout><Career1 /></Layout>} />
+          <Route path="/course" element={<Layout><Course /></Layout>} />
+          <Route path="/course1" element={<Layout><Course1 /></Layout>} />
+          <Route path="/course2" element={<Layout><Course2 /></Layout>} />
+          <Route path="/course3" element={<Layout><Course3 /></Layout>} />
+          <Route path="/course4" element={<Layout><Course4 /></Layout>} /> 
+          <Route path="/careerjob" element={<Layout><CareerJOB /></Layout>} />
+          <Route path="/careerlife" element={<Layout><CareerLife /></Layout>} />
+          <Route path="/careerpeople" element={<Layout><CareerPeople /></Layout>} />
       </Routes>
     </BrowserRouter>
   );

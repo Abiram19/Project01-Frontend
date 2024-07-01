@@ -17,7 +17,7 @@ const Footer = () => {
           </div>
           <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3 quick-links">
             <h5 className="text-uppercase mb-4 font-weight-bold">Quick Links</h5>
-            <p><a href=" #">Home</a></p>
+            <p><a href=" /Home">Home</a></p>
             <p><a href="/About">About Us</a></p>
             <p><a href="/Services">Services</a></p>
             <p><a href="/career">Careers</a></p>

@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link } from 'react-router-dom';
 import './Navbar.css';
 
 const Navbar = () => {
@@ -40,7 +41,7 @@ const Navbar = () => {
             </ul>
           </div>
         </div>
-        <a href=" #" className="login-button">Login</a>
+        <Link to="/LoginRegister" href=" #" className="login-button">Login</Link>
         <button className="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar">
           <span className="navbar-toggler-icon"></span>
         </button>

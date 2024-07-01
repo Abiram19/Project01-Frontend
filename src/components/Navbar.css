@@ -26,11 +26,14 @@
   padding: 8px 20px;
   border-radius: 50px;
   text-decoration: none;
-  transition: 0.3s background-color;
+  transform: 0.3s ease;
 }
 
 .login-button:hover {
-  background-color: #ff4958;
+  background-color: #190103;
+  color: #fff;
+  transform: scale(1.1);
+  font-size: 15px;
 }
 
 .navbar-toggler {

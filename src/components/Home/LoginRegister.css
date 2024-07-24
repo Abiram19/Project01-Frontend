@@ -21,7 +21,7 @@
 
 
 
-.wrapper{
+.wrapper1{
     position: relative;
     width: 420px;
     height: 450px;
@@ -38,32 +38,32 @@
     font-family: "poppins", sans-serif;
 }
 
-.wrapper.active {
+.wrapper1.active {
     height: 600px;
 }
 
-.wrapper .form-box {
+.wrapper1 .form-box {
     width: 100%;
     padding: 40px;
 }
 
-.wrapper .form-box.login {
+.wrapper1 .form-box.login {
     transition: translate .18s ease;
     translate: 0;
 }
 
-.wrapper.active .form-box.login {
+.wrapper1.active .form-box.login {
     transition: none;
     translate: -400px;
 }
 
-.wrapper .form-box.register {
+.wrapper1 .form-box.register {
     position: absolute;
     transition: none;
     translate: 400px;
 }
 
-.wrapper.active .form-box.register {
+.wrapper1.active .form-box.register {
     transition: translate .18s ease;
     translate: 0;
 }
@@ -97,7 +97,7 @@ form .input-box {
     color: #fff;
 }
 
-.input-box .icon {
+.input-box .icon1 {
     position: absolute;
     right: 20px;
     top: 50%;
@@ -117,15 +117,6 @@ form .remember-forgot {
 .remember-forgot label input {
     accent-color: #fff;
     margin-right: 4px;
-}
-
-.remember-forgot a {
-    color: #fff;
-    text-decoration: none;
-}
-
-.remember-forgot a:hover {
-    text-decoration: underline;
 }
 
 form button {
@@ -160,4 +151,15 @@ form .register-link {
 
 .register-link p a:hover {
     text-decoration: underline;
+}
+
+.form-error {
+    color: red; /* Optional: Change text color for visibility */
+    text-align: center; /* Center-align the text */
+    margin: 10px 0; /* Add margin to create space around the error message */
+    padding: 5px; /* Add padding for better spacing */
+    border: 1px solid red; /* Optional: Add a border for better visibility */
+    border-radius: 4px; /* Optional: Round the corners of the border */
+    background-color: #fdd; /* Optional: Light background color to highlight the error */
+    font-size: 12px;
 }

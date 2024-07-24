@@ -17,6 +17,7 @@ import Service13 from './components/service/service13';
 import Service14 from './components/service/service14';
 import Layout from './components/Layout';
 import Layout1 from './components/Layout1';
+import Layout2 from './components/Layout2'
 import About from './components/About';
 import Contactus from './components/Contactus';
 import CareerJOB from './components/career/CareerJOB';
@@ -30,6 +31,7 @@ import Course3 from './components/Course/Course3';
 import Course4 from './components/Course/Course4';
 import Home from './components/Home/Home';
 import LoginRegister from './components/Home/LoginRegister';
+import DashBoard from './components/Home/DashBoard';
 import './App.css';
 
 const App = () => {
@@ -65,6 +67,7 @@ const App = () => {
           <Route path="/careerpeople" element={<Layout><CareerPeople /></Layout>} />
             <Route path="/Home" element={<Layout><Home /></Layout>} />
             <Route path="/LoginRegister" element={<Layout1><LoginRegister /></Layout1>} />
+              <Route path="/DashBoard" element={<Layout2><DashBoard /></Layout2>} />
       </Routes>
     </BrowserRouter>
   );

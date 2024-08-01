@@ -17,7 +17,8 @@ import Service13 from './components/service/service13';
 import Service14 from './components/service/service14';
 import Layout from './components/Layout';
 import Layout1 from './components/Layout1';
-import Layout2 from './components/Layout2'
+import Layout2 from './components/Layout2';
+import Layout3 from './components/Layout3';
 import About from './components/About';
 import Contactus from './components/Contactus';
 import CareerJOB from './components/career/CareerJOB';
@@ -39,32 +40,32 @@ const App = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Layout><Home /></Layout>} />
-        <Route path="about" element={<Layout><About /></Layout>} />
-        <Route path="/services" element={<Layout><Services /></Layout>} />
-        <Route path="/service1" element={<Layout><Service1 /></Layout>} />
-        <Route path="/service2" element={<Layout><Service2 /></Layout>} />
-        <Route path="/service3" element={<Layout><Service3 /></Layout>} />
-        <Route path="/service4" element={<Layout><Service4 /></Layout>} />
-        <Route path="/service5" element={<Layout><Service5 /></Layout>} />
-        <Route path="/service6" element={<Layout><Service6 /></Layout>} />
-        <Route path="/service7" element={<Layout><Service7 /></Layout>} />
-        <Route path="/service8" element={<Layout><Service8 /></Layout>} />
-        <Route path="/service9" element={<Layout><Service9 /></Layout>} />
-        <Route path="/service10" element={<Layout><Service10 /></Layout>} />
-        <Route path="/service11" element={<Layout><Service11 /></Layout>} />
-        <Route path="/service12" element={<Layout><Service12 /></Layout>} />
-        <Route path="/service13" element={<Layout><Service13 /></Layout>} />
-        <Route path="/service14" element={<Layout><Service14 /></Layout>} />
-        <Route path="/contactus" element={<Layout><Contactus /></Layout>} />
-        <Route path="/career" element={<Layout><Career1 /></Layout>} />
-          <Route path="/course" element={<Layout><Course /></Layout>} />
-          <Route path="/course1" element={<Layout><Course1 /></Layout>} />
-          <Route path="/course2" element={<Layout><Course2 /></Layout>} />
-          <Route path="/course3" element={<Layout><Course3 /></Layout>} />
-          <Route path="/course4" element={<Layout><Course4 /></Layout>} /> 
-          <Route path="/careerjob" element={<Layout><CareerJOB /></Layout>} />
-          <Route path="/careerlife" element={<Layout><CareerLife /></Layout>} />
-          <Route path="/careerpeople" element={<Layout><CareerPeople /></Layout>} />
+        <Route path="about" element={<Layout3><About /></Layout3>} />
+        <Route path="/services" element={<Layout3><Services /></Layout3>} />
+        <Route path="/service1" element={<Layout3><Service1 /></Layout3>} />
+        <Route path="/service2" element={<Layout3><Service2 /></Layout3>} />
+        <Route path="/service3" element={<Layout3><Service3 /></Layout3>} />
+        <Route path="/service4" element={<Layout3><Service4 /></Layout3>} />
+        <Route path="/service5" element={<Layout3><Service5 /></Layout3>} />
+        <Route path="/service6" element={<Layout3><Service6 /></Layout3>} />
+        <Route path="/service7" element={<Layout3><Service7 /></Layout3>} />
+        <Route path="/service8" element={<Layout3><Service8 /></Layout3>} />
+        <Route path="/service9" element={<Layout3><Service9 /></Layout3>} />
+        <Route path="/service10" element={<Layout3><Service10 /></Layout3>} />
+        <Route path="/service11" element={<Layout3><Service11 /></Layout3>} />
+        <Route path="/service12" element={<Layout3><Service12 /></Layout3>} />
+        <Route path="/service13" element={<Layout3><Service13 /></Layout3>} />
+        <Route path="/service14" element={<Layout3><Service14 /></Layout3>} />
+        <Route path="/contactus" element={<Layout3><Contactus /></Layout3>} />
+        <Route path="/career" element={<Layout3><Career1 /></Layout3>} />
+          <Route path="/course" element={<Layout3><Course /></Layout3>} />
+          <Route path="/course1" element={<Layout3><Course1 /></Layout3>} />
+          <Route path="/course2" element={<Layout3><Course2 /></Layout3>} />
+          <Route path="/course3" element={<Layout3><Course3 /></Layout3>} />
+          <Route path="/course4" element={<Layout3><Course4 /></Layout3>} /> 
+          <Route path="/careerjob" element={<Layout3><CareerJOB /></Layout3>} />
+          <Route path="/careerlife" element={<Layout3><CareerLife /></Layout3>} />
+          <Route path="/careerpeople" element={<Layout3><CareerPeople /></Layout3>} />
             <Route path="/Home" element={<Layout><Home /></Layout>} />
             <Route path="/LoginRegister" element={<Layout1><LoginRegister /></Layout1>} />
               <Route path="/DashBoard" element={<Layout2><DashBoard /></Layout2>} />

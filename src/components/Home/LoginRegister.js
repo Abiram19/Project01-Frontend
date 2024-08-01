@@ -13,7 +13,7 @@ const LoginRegister = () => {
         user: '',
         email: '',
         pass: '',
-        cpass: '',
+        cpass: '', 
         rememberMe: false
     });
     
@@ -88,7 +88,8 @@ const LoginRegister = () => {
                         user: '',
                         email: '',
                         pass: '',
-                        cpass: ''
+                        cpass: '',
+                        rememberMe: false
                     });
                     alert('Registration successful!');
                     navigate('/LoginRegister');  // Redirect to Login page
@@ -187,7 +188,7 @@ const LoginRegister = () => {
                         
                     </div>
 
-                    <button type="submit" name="submit">Register</button>
+                    <button type="submit" name="submit" onClick={loginLink}>Register</button>
 
                     <div className="register-link">
                         <p>Already have an account? <a href="#" onClick={loginLink}>Login</a></p>

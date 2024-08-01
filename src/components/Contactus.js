@@ -123,7 +123,7 @@ const ContactForm = () => {
                     <h1>Contact Us</h1>
                     <form onSubmit={handleSubmit}>
                       <div className="mb-3">
-                        <label htmlFor="firstName" className="form-label">First Name</label>
+                        <label htmlFor="firstName" className="form-label">Full Name</label>
                         <input
                           type="text"
                           className="form-control"

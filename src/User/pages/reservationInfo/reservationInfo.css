@@ -1,0 +1,8 @@
+.reservationInfo {
+  flex: 4;
+}
+
+.reservationInfoWidgets {
+  display: flex;
+  margin: 20px;
+}

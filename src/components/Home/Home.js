@@ -8,6 +8,7 @@ import home5 from '../assets/home5.png';
 import home6 from '../assets/home6.png';
 import './Home.css';
 
+
 const Home = () => {
   return (
     <main>

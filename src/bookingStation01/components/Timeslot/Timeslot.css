@@ -1,0 +1,41 @@
+/* src/components/Timeslot/Timeslot.css */
+.timeslot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.timeslot h2 {
+  margin-bottom: 20px;
+}
+
+.timeslot-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.timeslot-button {
+  background-color: green;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.timeslot-button:hover {
+  background-color: darkgreen;
+}
+
+/* Other styles */
+.timeslot-button.available {
+  background-color: green;
+  color: white;
+}
+
+.timeslot-button.booked {
+  background-color: red;
+  color: white;
+}

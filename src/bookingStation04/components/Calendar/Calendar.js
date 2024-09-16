@@ -21,8 +21,8 @@ const Calendar = () => {
         }&year=${currentDate.getFullYear()}`
       );
       const data = await response.json();
-      console.log("Available Slots Data:", data); // Updated for debugging
-      setAvailableSlots(data.availableSlots);
+      console.log("Available Slots Data:", data);
+      setAvailableSlots(data.availableSlots || {});
     } catch (error) {
       console.error("Error fetching available slots:", error);
     }
@@ -74,7 +74,8 @@ const Calendar = () => {
   };
 
   const renderDay = (day) => {
-    if (!day) return <div className="day empty"></div>;
+    if (!day)
+      return <div className="day empty" key={`empty-${Math.random()}`}></div>;
 
     const formattedDate = day.toLocaleDateString("en-CA");
     const available = availableSlots[formattedDate] || 0;
@@ -113,19 +114,19 @@ const Calendar = () => {
       </div>
       <div className="days-grid">
         {[
+          "Sunday",
           "Monday",
           "Tuesday",
           "Wednesday",
           "Thursday",
           "Friday",
           "Saturday",
-          "Sunday",
         ].map((day) => (
           <div className="day-name" key={day}>
             {day}
           </div>
         ))}
-        {days.map((day, index) => renderDay(day, index))}
+        {days.map((day) => renderDay(day))}
       </div>
     </div>
   );

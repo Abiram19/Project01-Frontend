@@ -1,45 +1,67 @@
-// src/components/TimeslotForm/TimeslotForm.js
 import React, { useState } from "react";
 import Modal from "react-modal";
-import "./TimeslotForm.css";
 
-Modal.setAppElement("#root");
+Modal.setAppElement("#root"); // Specify your app root element
 
-const TimeslotForm = ({ isOpen, onRequestClose, timeslot }) => {
+const TimeslotForm = ({ isOpen, onRequestClose, timeslot, date }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [vehicleModel, setVehicleModel] = useState("");
   const [vehicleNumber, setVehicleNumber] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission
-    console.log({ name, email, phone, vehicleModel, vehicleNumber, timeslot });
-    onRequestClose();
+
+    const bookingData = {
+      name,
+      email,
+      phone,
+      vehicleModel,
+      vehicleNumber,
+      timeslot,
+      date,
+    };
+
+    try {
+      const response = await fetch(
+        "http://localhost/Backend/api2.php?action=add_booking",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(bookingData),
+        }
+      );
+      const data = await response.json();
+      if (data.status === "success") {
+        alert("Booking successful!");
+        onRequestClose();
+      } else {
+        alert("Booking failed. Please try again.");
+      }
+    } catch (error) {
+      console.error("Error submitting booking:", error);
+    }
   };
 
   return (
     <Modal
       isOpen={isOpen}
       onRequestClose={onRequestClose}
-      contentLabel="Booking Form"
       className="Modal"
       overlayClassName="Overlay"
     >
       <div className="modal-header">
-        <h2>Booking: {timeslot}</h2>
+        <h2>Book Timeslot: {timeslot}</h2>
         <button onClick={onRequestClose} className="close-button">
           &times;
         </button>
       </div>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
-          <label>Timeslot</label>
-          <input type="text" value={timeslot} readOnly />
-        </div>
-        <div className="form-group">
-          <label>Name</label>
+          <label>Name:</label>
           <input
             type="text"
             value={name}
@@ -48,7 +70,7 @@ const TimeslotForm = ({ isOpen, onRequestClose, timeslot }) => {
           />
         </div>
         <div className="form-group">
-          <label>Email</label>
+          <label>Email:</label>
           <input
             type="email"
             value={email}
@@ -57,16 +79,18 @@ const TimeslotForm = ({ isOpen, onRequestClose, timeslot }) => {
           />
         </div>
         <div className="form-group">
-          <label>Phone Number</label>
+          <label>Phone:</label>
           <input
-            type="tel"
+            type="text"
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
+            maxLength="10"
+            pattern="\d{10}"
             required
           />
         </div>
         <div className="form-group">
-          <label>Vehicle Model</label>
+          <label>Vehicle Model:</label>
           <input
             type="text"
             value={vehicleModel}
@@ -75,7 +99,7 @@ const TimeslotForm = ({ isOpen, onRequestClose, timeslot }) => {
           />
         </div>
         <div className="form-group">
-          <label>Vehicle Number</label>
+          <label>Vehicle Number:</label>
           <input
             type="text"
             value={vehicleNumber}
@@ -84,7 +108,7 @@ const TimeslotForm = ({ isOpen, onRequestClose, timeslot }) => {
           />
         </div>
         <button type="submit" className="submit-button">
-          Submit
+          Submit Booking
         </button>
       </form>
     </Modal>

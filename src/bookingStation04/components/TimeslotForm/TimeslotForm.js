@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Modal from "react-modal";
+import "./TimeslotForm.css";
 
 Modal.setAppElement("#root"); // Specify your app root element
 
@@ -81,9 +82,11 @@ const TimeslotForm = ({ isOpen, onRequestClose, timeslot, date }) => {
         <div className="form-group">
           <label>Phone:</label>
           <input
-            type="tel"
+            type="text"
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
+            maxLength="10"
+            pattern="\d{10}"
             required
           />
         </div>

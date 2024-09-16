@@ -12,7 +12,7 @@ const User = () => {
   return (
     <>
       <UserTopbar />
-      <div className="container">
+      <div className="user_container">
         <UserSidebar />
         <Routes>
           <Route path="/" element={<Station />} /> {/* Default route */}

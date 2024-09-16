@@ -1,22 +1,25 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import home1 from '../assets/home1.png';
-import home2 from '../assets/home2.png';
-import home3 from '../assets/home3.png';
-import home4 from '../assets/home4.mp4';
-import home5 from '../assets/home5.png';
-import home6 from '../assets/home6.png';
-import './Home.css';
-
+import React from "react";
+import { Link } from "react-router-dom";
+import home1 from "../assets/home1.png";
+import home2 from "../assets/home2.png";
+import home3 from "../assets/home3.png";
+import home4 from "../assets/home4.mp4";
+import home5 from "../assets/home5.png";
+import home6 from "../assets/home6.png";
+import "./Home.css";
 
 const Home = () => {
   return (
     <main>
       <div className="button-container">
-        <Link to="/LoginRegister" className="book-now" >Book Now</Link>
+        <Link to="/LoginRegister" className="book-now">
+          Book Now
+        </Link>
       </div>
       <div className="heading">
-        <h3><b>Largest Automobile Service providers in Sri Lanka</b></h3>
+        <h3>
+          <b>Largest Automobile Service providers in Sri Lanka</b>
+        </h3>
         <br />
       </div>
       <div className="content">
@@ -24,7 +27,11 @@ const Home = () => {
           <img src={home1} alt="Left Image" />
         </div>
         <div className="column1">
-          <h4><b>Over 28 Years of Excellence in the automotive service industry</b></h4>
+          <h4>
+            <b>
+              Over 28 Years of Excellence in the automotive service industry
+            </b>
+          </h4>
           <p>
             AutoCare Lanka being Sri Lanka's largest and the best auto service
             network, has the most diverse service portfolio. AutoCare Lanka is
@@ -38,12 +45,14 @@ const Home = () => {
       <br />
       <br />
       <div className="cent-img">
-        <img src={home2} alt="Landscape Image" />   
+        <img src={home2} alt="Landscape Image" />
       </div>
       <br />
       <br />
       <div className="latest-news">
-        <h3><b>Latest News</b></h3>
+        <h3>
+          <b>Latest News</b>
+        </h3>
       </div>
       <br />
       <br />
@@ -72,7 +81,9 @@ const Home = () => {
       </div>
       <br />
       <br />
-      <h3 className="serpart"><b>Our Service Partners</b></h3>
+      <h3 className="serpart">
+        <b>Our Service Partners</b>
+      </h3>
       <br />
       <br />
       <div className="logos">
@@ -85,4 +96,3 @@ const Home = () => {
 };
 
 export default Home;
-

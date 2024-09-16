@@ -19,12 +19,12 @@ export default function Sidebar() {
     <div className="sidebar">
       <div className="sidebarWrapper">
         <div className="sidebarMenu">
-          <h3 className="sidebarTitle">Dashboard</h3>
+          <h3 className="sidebarTitle">Booking</h3>
           <ul className="sidebarList">
             <Link to="/admin" className="link">
               <li className="sidebarListItem active">
                 <LineStyle className="sidebarIcon" />
-                Home
+                Book A Service
               </li>
             </Link>
           </ul>
@@ -33,22 +33,30 @@ export default function Sidebar() {
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">Bookings</h3>
           <ul className="sidebarList">
-            <li className="sidebarListItem">
-              <BookOnline className="sidebarIcon" />
-              Station-01
-            </li>
-            <li className="sidebarListItem">
-              <BookOnline className="sidebarIcon" />
-              Station-02
-            </li>
-            <li className="sidebarListItem">
-              <BookOnline className="sidebarIcon" />
-              Station-03
-            </li>
-            <li className="sidebarListItem">
-              <BookOnline className="sidebarIcon" />
-              Station-04
-            </li>
+            <Link to="/admin/bookingList01" className="link">
+              <li className="sidebarListItem">
+                <BookOnline className="sidebarIcon" />
+                Station-01
+              </li>
+            </Link>
+            <Link to="/admin/bookingList02" className="link">
+              <li className="sidebarListItem">
+                <BookOnline className="sidebarIcon" />
+                Station-02
+              </li>
+            </Link>
+            <Link to="/admin/bookingList03" className="link">
+              <li className="sidebarListItem">
+                <BookOnline className="sidebarIcon" />
+                Station-03
+              </li>
+            </Link>
+            <Link to="/admin/bookingList04" className="link">
+              <li className="sidebarListItem">
+                <BookOnline className="sidebarIcon" />
+                Station-04
+              </li>
+            </Link>
           </ul>
         </div>
 
@@ -69,10 +77,12 @@ export default function Sidebar() {
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">Notifications</h3>
           <ul className="sidebarList">
-            <li className="sidebarListItem">
-              <ContactMail className="sidebarIcon" />
-              Messages
-            </li>
+            <Link to="/admin/messageList" className="link">
+              <li className="sidebarListItem">
+                <ContactMail className="sidebarIcon" />
+                Messages
+              </li>
+            </Link>
           </ul>
         </div>
 

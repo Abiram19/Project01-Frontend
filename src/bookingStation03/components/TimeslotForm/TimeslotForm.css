@@ -5,7 +5,7 @@
   left: 50%;
   right: auto;
   bottom: auto;
-  marginright: -50%;
+  margin-right: -50%;
   transform: translate(-50%, -50%);
   width: 50%;
   background: white;
@@ -20,7 +20,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  backgroundcolor: rgba(0, 0, 0, 0.75);
+  background-color: rgba(0, 0, 0, 0.75);
 }
 
 .modal-header {

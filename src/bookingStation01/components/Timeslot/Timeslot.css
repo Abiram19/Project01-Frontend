@@ -1,4 +1,3 @@
-/* src/components/Timeslot/Timeslot.css */
 .timeslot {
   display: flex;
   flex-direction: column;
@@ -17,25 +16,23 @@
 }
 
 .timeslot-button {
-  background-color: green;
-  color: white;
-  border: none;
   padding: 10px 20px;
-  cursor: pointer;
+  border: none;
   border-radius: 5px;
+  cursor: pointer;
 }
 
-.timeslot-button:hover {
-  background-color: darkgreen;
-}
-
-/* Other styles */
 .timeslot-button.available {
   background-color: green;
   color: white;
 }
 
+.timeslot-button.available:hover {
+  background-color: darkgreen;
+}
+
 .timeslot-button.booked {
   background-color: red;
   color: white;
+  cursor: not-allowed;
 }

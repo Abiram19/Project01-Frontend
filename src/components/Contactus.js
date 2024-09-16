@@ -1,19 +1,19 @@
-import React, { useState } from 'react';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import img1 from './assets/A20.jpg';
-import img2 from './assets/A21.jpg';
-import img3 from './assets/A22.jpg';
-import './Contactus.css';
+import React, { useState } from "react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import img1 from "./assets/A20.jpg";
+import img2 from "./assets/A21.jpg";
+import img3 from "./assets/A22.jpg";
+import "./Contactus.css";
 
 const ContactForm = () => {
   const initialFormData = {
-    firstName: '',
-    phone: '',
-    email: '',
-    message: ''
+    firstName: "",
+    phone: "",
+    email: "",
+    message: "",
   };
 
   const [formData, setFormData] = useState(initialFormData);
@@ -23,21 +23,54 @@ const ContactForm = () => {
     const { name, value } = e.target;
     setFormData({
       ...formData,
-      [name]: value
+      [name]: value,
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setShowSuccess(true);
 
+    try {
+      const response = await fetch(
+        "http://localhost/Backend/submit_message.php",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
 
-    setFormData(initialFormData);
+      const contentType = response.headers.get("content-type");
+      if (contentType && contentType.includes("application/json")) {
+        const result = await response.json();
 
+        if (result.success) {
+          // Display an alert message upon successful submission
+          alert("Message is successfully sent");
 
-    setTimeout(() => {
-      setShowSuccess(false);
-    }, 3000);
+          // Optionally, reset the form and show a success message
+          setFormData(initialFormData);
+          setShowSuccess(true);
+          setTimeout(() => {
+            setShowSuccess(false);
+          }, 3000);
+        } else {
+          console.error(result.message);
+          // Optionally, handle error message display
+          alert(`Error: ${result.message}`);
+        }
+      } else {
+        // If response is not JSON, handle the error
+        console.error("Response is not JSON:", await response.text());
+        alert("Failed to receive a valid response from the server.");
+      }
+    } catch (error) {
+      // Log and alert errors
+      console.error("Error submitting the form:", error);
+      alert("An error occurred while submitting the form.");
+    }
   };
 
   const settings = {
@@ -52,8 +85,7 @@ const ContactForm = () => {
 
   return (
     <div className="container mt-4">
-
-      <div className='slider-container'>
+      <div className="slider-container">
         <Slider {...settings}>
           <div>
             <img src={img1} alt="Image 1" />
@@ -66,7 +98,7 @@ const ContactForm = () => {
           </div>
         </Slider>
       </div>
-      <div className='mt-5'>
+      <div className="mt-5">
         {showSuccess && (
           <div className="alert alert-secondary" role="alert">
             Your message has been sent successfully!
@@ -74,8 +106,7 @@ const ContactForm = () => {
         )}
       </div>
 
-
-      <div className="main-contact-section  ">
+      <div className="main-contact-section">
         <div className="container">
           <div className="row justify-content-center">
             <div className="">
@@ -89,7 +120,9 @@ const ContactForm = () => {
                           <i className="fas fa-home mr-3"></i>
                         </div>
                         <div className="media-body">
-                          <h5 className="mt-0">66, Attidiya Road, Rathmalana, Sri Lanka 10390.</h5>
+                          <h5 className="mt-0">
+                            66, Attidiya Road, Rathmalana, Sri Lanka 10390.
+                          </h5>
                         </div>
                       </div>
                       <div className="media mb-4 align-items-center">
@@ -116,14 +149,15 @@ const ContactForm = () => {
                           <h5 className="mt-0">+94 123 456 780</h5>
                         </div>
                       </div>
-
                     </div>
                   </div>
                   <div className="col-lg-7">
                     <h1>Contact Us</h1>
                     <form onSubmit={handleSubmit}>
                       <div className="mb-3">
-                        <label htmlFor="firstName" className="form-label">Full Name</label>
+                        <label htmlFor="firstName" className="form-label">
+                          Full Name
+                        </label>
                         <input
                           type="text"
                           className="form-control"
@@ -170,7 +204,9 @@ const ContactForm = () => {
                           required
                         ></textarea>
                       </div>
-                      <button type="submit" className="btn btn-secondary">Submit</button>
+                      <button type="submit" className="btn btn-secondary">
+                        Submit
+                      </button>
                     </form>
                   </div>
                 </div>

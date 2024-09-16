@@ -5,6 +5,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 20px auto;
 }
 
 .header {
@@ -12,6 +13,12 @@
   justify-content: space-between;
   width: 100%;
   padding: 10px;
+}
+
+.header button {
+  background-color: rgb(19, 93, 127);
+  color: white;
+  border-radius: 3px;
 }
 
 .current-month {
@@ -51,11 +58,15 @@
 }
 
 .status.book button {
-  background-color: green;
+  background-color: rgb(1, 146, 1);
   color: white;
   border: none;
   padding: 5px;
   cursor: pointer;
+}
+
+.status.book button:hover {
+  background-color: darkgreen;
 }
 
 .status.book .slots {
@@ -63,7 +74,7 @@
   color: green;
 }
 
-.status.booked button {
+.status.book .booked {
   background-color: red;
   color: white;
 }

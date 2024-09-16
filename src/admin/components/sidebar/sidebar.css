@@ -1,9 +1,11 @@
+/* sidebar.css */
 .sidebar {
-  flex: 1;
-  height: calc(100vh - 50px);
+  width: 250px; /* Fixed width for the sidebar */
   background-color: rgb(240, 244, 244);
   position: sticky;
   top: 50px;
+  height: calc(100vh - 50px); /* Full height minus the top bar height */
+  overflow-y: auto; /* Scroll if content exceeds height */
 }
 
 .sidebarWrapper {

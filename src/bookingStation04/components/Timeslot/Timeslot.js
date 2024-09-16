@@ -16,7 +16,7 @@ const Timeslot = () => {
   const fetchTimeslotStatus = async () => {
     try {
       const response = await fetch(
-        `http://localhost/api.php?action=get_timeslot_status&date=${date}`
+        `http://localhost/Backend/api.php?action=get_timeslot_status&date=${date}`
       );
       const data = await response.json();
       setTimeslotStatus(data);

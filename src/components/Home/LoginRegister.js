@@ -78,7 +78,7 @@ const LoginRegister = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost/Backend/register.php",
+        "http://localhost/Project-01/Project01-Backend/register.php",
         formData,
         {
           headers: {
@@ -118,7 +118,7 @@ const LoginRegister = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost/Backend/login.php",
+        "http://localhost/Project-01/Project01-Backend/login.php",
         { user, pass, rememberMe },
         {
           headers: {
@@ -132,6 +132,9 @@ const LoginRegister = () => {
       } else {
         setFormError("");
         alert("Login successful!");
+        
+        sessionStorage.setItem("username", user);
+        
         if (response.data.userrole === "admin") {
           navigate("/admin");
         } else {

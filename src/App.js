@@ -1,35 +1,30 @@
 import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route,Link } from "react-router-dom";
 import Services from "./components/Services";
-import Service1 from "./components/service/service1";
-import Service2 from "./components/service/service2";
-import Service3 from "./components/service/service3";
-import Service4 from "./components/service/service4";
-import Service5 from "./components/service/service5";
-import Service6 from "./components/service/service6";
-import Service7 from "./components/service/service7";
-import Service8 from "./components/service/service8";
-import Service9 from "./components/service/service9";
-import Service10 from "./components/service/service10";
-import Service11 from "./components/service/service11";
-import Service12 from "./components/service/service12";
-import Service13 from "./components/service/service13";
-import Service14 from "./components/service/service14";
+import LayoutEm from "./components/Employee/LayoutEm";
+import LayoutEm1 from "./components/Employee/LayoutEm1";
 import Layout from "./components/Layout";
 import Layout1 from "./components/Layout1";
 import Layout2 from "./components/Layout2";
 import Layout3 from "./components/Layout3";
-import About from "./components/About";
-import Contactus from "./components/Contactus";
+import About from "./components/AboutUs/About";
+import Contactus from "./components/ContactUs/Contactus";
 import CareerJOB from "./components/career/CareerJOB";
 import CareerLife from "./components/career/CareerLife";
 import CareerPeople from "./components/career/CareerPeople";
 import Career1 from "./components/career/Career1";
-import Course from "./components/career/Course";
-import Course1 from "./components/Course/Course1";
-import Course2 from "./components/Course/Course2";
-import Course3 from "./components/Course/Course3";
-import Course4 from "./components/Course/Course4";
+import Jobs from "./components/job/Jobs";
+import JobDetails from "./components/job/JobDetails";
+import ChangePassword from "./components/Employee/ChangePassword";
+import EmLogin from "./components/Employee/EmLogin";
+import History from "./components/Employee/History";
+import Profile from "./components/Employee/Profile";
+import ProfileUpdate from "./components/Employee/ProfileUpdate";
+import Welcome from "./components/Employee/Welcome";
+import ServiceDetail from '../src/components/service/ServiceDetail';
+import Courses from '../src/components/Course/Courses';
+import CourseDetails from '../src/components/Course/CourseDetails'; // Import the CourseDetails component
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from "./components/Home/Home";
 import LoginRegister from "./components/Home/LoginRegister";
 import DashBoard from "./components/Home/DashBoard";
@@ -39,10 +34,13 @@ import BookingStation04 from "./components/BookingStation04";
 import BookingStation01 from "./components/BookingStation01";
 import BookingStation02 from "./components/BookingStation02";
 import BookingStation03 from "./components/BookingStation03";
-import "./App.css";
+
+
+
 
 const App = () => {
   return (
+    <div>
     <BrowserRouter>
       <Routes>
         <Route
@@ -68,119 +66,8 @@ const App = () => {
               <Services />
             </Layout3>
           }
-        />
-        <Route
-          path="/service1"
-          element={
-            <Layout3>
-              <Service1 />
-            </Layout3>
-          }
-        />
-        <Route
-          path="/service2"
-          element={
-            <Layout3>
-              <Service2 />
-            </Layout3>
-          }
-        />
-        <Route
-          path="/service3"
-          element={
-            <Layout3>
-              <Service3 />
-            </Layout3>
-          }
-        />
-        <Route
-          path="/service4"
-          element={
-            <Layout3>
-              <Service4 />
-            </Layout3>
-          }
-        />
-        <Route
-          path="/service5"
-          element={
-            <Layout3>
-              <Service5 />
-            </Layout3>
-          }
-        />
-        <Route
-          path="/service6"
-          element={
-            <Layout3>
-              <Service6 />
-            </Layout3>
-          }
-        />
-        <Route
-          path="/service7"
-          element={
-            <Layout3>
-              <Service7 />
-            </Layout3>
-          }
-        />
-        <Route
-          path="/service8"
-          element={
-            <Layout3>
-              <Service8 />
-            </Layout3>
-          }
-        />
-        <Route
-          path="/service9"
-          element={
-            <Layout3>
-              <Service9 />
-            </Layout3>
-          }
-        />
-        <Route
-          path="/service10"
-          element={
-            <Layout3>
-              <Service10 />
-            </Layout3>
-          }
-        />
-        <Route
-          path="/service11"
-          element={
-            <Layout3>
-              <Service11 />
-            </Layout3>
-          }
-        />
-        <Route
-          path="/service12"
-          element={
-            <Layout3>
-              <Service12 />
-            </Layout3>
-          }
-        />
-        <Route
-          path="/service13"
-          element={
-            <Layout3>
-              <Service13 />
-            </Layout3>
-          }
-        />
-        <Route
-          path="/service14"
-          element={
-            <Layout3>
-              <Service14 />
-            </Layout3>
-          }
-        />
+     />
+        
         <Route
           path="/contactus"
           element={
@@ -201,42 +88,11 @@ const App = () => {
           path="/course"
           element={
             <Layout3>
-              <Course />
+              <Courses />
             </Layout3>
           }
         />
-        <Route
-          path="/course1"
-          element={
-            <Layout3>
-              <Course1 />
-            </Layout3>
-          }
-        />
-        <Route
-          path="/course2"
-          element={
-            <Layout3>
-              <Course2 />
-            </Layout3>
-          }
-        />
-        <Route
-          path="/course3"
-          element={
-            <Layout3>
-              <Course3 />
-            </Layout3>
-          }
-        />
-        <Route
-          path="/course4"
-          element={
-            <Layout3>
-              <Course4 />
-            </Layout3>
-          }
-        />
+        
         <Route
           path="/careerjob"
           element={
@@ -291,8 +147,26 @@ const App = () => {
         <Route path="/bookingstation01/*" element={<BookingStation01 />} />
         <Route path="/bookingstation02/*" element={<BookingStation02 />} />
         <Route path="/bookingstation03/*" element={<BookingStation03 />} />
+        <Route path="/courses/:id" element={<CourseDetails />} /> {/* View course details by ID */}
+        <Route path="/courses" element={<Courses />} /> {/* List specific course */}
+        <Route path="/services/:id" element={<ServiceDetail />} /> {/* View course details by ID */}
+        <Route path="/jobs" element={<Jobs />} /> {/* Route for Courses */}
+        <Route path="/jobs/:id" element={<JobDetails />} />
+
+        <Route path="/changePassword/:id" element={<LayoutEm1><ChangePassword /></LayoutEm1>} />
+        <Route path="/emLogin" element={<EmLogin />} />
+        <Route path="/History/:id" element={<LayoutEm1><History /></LayoutEm1>} />
+        <Route path="/profileupdate/:id" element={<LayoutEm1><ProfileUpdate /></LayoutEm1>} />
+        <Route path="/profile/:id" element={<LayoutEm1><Profile /></LayoutEm1>} />
+        <Route path="/welcome/:id" element={<LayoutEm><Welcome /></LayoutEm>} />
+      
       </Routes>
+     
     </BrowserRouter>
+
+   
+        
+    </div>
   );
 };
 

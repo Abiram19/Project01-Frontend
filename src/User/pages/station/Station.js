@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./station.css";
 
@@ -14,6 +14,17 @@ const stations = [
 ];
 
 const Station = () => {
+  
+
+  const user_role = sessionStorage.getItem("user-role");
+
+  useEffect(() => {
+    if(user_role != "user"){
+      sessionStorage.clear();
+      navigate("/LoginRegister")
+    }
+  },[])
+
   const navigate = useNavigate();
 
   const handleBookClick = (stationId) => {

@@ -163,3 +163,43 @@ form .register-link {
     background-color: #fdd; /* Optional: Light background color to highlight the error */
     font-size: 12px;
 }
+
+
+/* Custom styles for SweetAlert2 popups */
+
+/* For success popups */
+.my-popup-class {
+    border-radius: 15px;
+    padding: 2rem;
+  }
+  
+  .my-title-class {
+    color: #007bff;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.75rem;
+  }
+  
+  .my-confirm-button-class {
+    padding: 0.75rem 1.5rem;
+    font-size: 1.2rem;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  /* For error popups */
+  .my-popup-class-error {
+    border-radius: 15px;
+    padding: 2rem;
+  }
+  
+  .my-title-class-error {
+    color: #e74c3c;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.75rem;
+  }
+  
+  .my-confirm-button-class-error {
+    padding: 0.75rem 1.5rem;
+    font-size: 1.2rem;
+    font-family: 'Poppins', sans-serif;
+  }
+  

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Swal from 'sweetalert2';
 import { useNavigate } from "react-router-dom";
 import "./Calendar.css";
 
@@ -13,20 +14,40 @@ const Calendar = () => {
     fetchAvailableSlots();
   }, [currentDate]);
 
-  const fetchAvailableSlots = async () => {
+
+const fetchAvailableSlots = async () => {
     try {
-      const response = await fetch(
-        `http://localhost/Backend/api1.php?action=get_calendar&month=${
-          currentDate.getMonth() + 1
-        }&year=${currentDate.getFullYear()}`
-      );
-      const data = await response.json();
-      console.log("Available Slots Data:", data);
-      setAvailableSlots(data.availableSlots || {});
+        const response = await fetch(
+            `http://localhost/Backend/api1.php?action=get_calendar&month=${currentDate.getMonth() + 1}&year=${currentDate.getFullYear()}`
+        );
+        
+        const data = await response.json();
+        console.log("Available Slots Data:", data);
+        
+        if (data.availableSlots) {
+            setAvailableSlots(data.availableSlots);
+        } else {
+            // Show error popup if available slots data is not in expected format
+            await Swal.fire({
+                title: 'Error',
+                text: 'No available slots found or data format is incorrect.',
+                icon: 'warning',
+                confirmButtonText: 'OK',
+            });
+            setAvailableSlots({}); // Clear slots in case of unexpected format
+        }
     } catch (error) {
-      console.error("Error fetching available slots:", error);
+        console.error("Error fetching available slots:", error);
+        // Show error popup for fetch failure
+        await Swal.fire({
+            title: 'Error',
+            text: 'Failed to fetch available slots. Please check your connection or try again later.',
+            icon: 'error',
+            confirmButtonText: 'OK',
+        });
     }
-  };
+};
+
 
   const generateCalendar = () => {
     const startOfMonth = new Date(

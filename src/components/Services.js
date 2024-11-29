@@ -1,129 +1,87 @@
 // Services.js
-import React from 'react';
-import './Services.css';
-import service1Img from '../image/service1.jpg';
-import service2Img from '../image/service2.jpg';
-import service3Img from '../image/service3.webp';
-import service4Img from '../image/service4.jpg';
-import service5Img from '../image/service5.jpg';
-import service6Img from '../image/service6.jpg';
-import service7Img from '../image/service7.jpg';
-import service8Img from '../image/service8.jpg';
-import service9Img from '../image/service9.jpg';
-import service10Img from '../image/service10.jpg';
-import service11Img from '../image/service11.avif';
-import service12Img from '../image/service12.png';
-import service13Img from '../image/service13.jpg';
-import service14Img from '../image/service14.jpg';
+import './Ser.css';
+import React, { useEffect, useState } from "react";
+import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2';
+import axios from 'axios';
 
-const Services = () => {
-  return (
-    <div className="container">
-      <h1 className="heading">Our Services</h1>
-      <table>
-        <tbody>
-          <tr>
-            <td>
-              <a href="/service1">
-                <img src={service1Img} alt="service1" className="image" /><br/><br/>
-                <p className="ser">AUTOCARE LANKA TOTAL CARE & MAINTENANCE</p> 
-              </a>
-            </td>
-            <td>
-              <a href="/service2">
-                <img src={service2Img} alt="service2" className="image" /><br/><br/>
-                <p className="ser">INSPECTIONS</p>
-              </a>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <a href="/service3">
-                <img src={service3Img} alt="service3" className="image" /><br/><br/>
-                <p className="ser">BODY AND PAINT CENTRE</p>
-              </a>
-            </td>
-            <td>
-              <a href="/service4">
-                <img src={service4Img} alt="service4" className="image" /><br/><br/>
-                <p className="ser">GENERAL SERVICE</p>
-              </a>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <a href="/service5">
-                <img src={service5Img} alt="service5" className="image" /><br/><br/>
-                <p className="ser">OUR PROFESSIONAL TEAM</p>
-              </a>
-            </td>
-            <td>
-              <a href="/service6">
-                <img src={service6Img} alt="service6" className="image" /><br/><br/>
-                <p className="ser">GENERAL REPAIRS</p>
-              </a>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <a href="/service7">
-                <img src={service7Img} alt="service7" className="image" /><br/><br/>
-                <p className="ser">PERIODIC MAINTENANCE</p>
-              </a>
-            </td>
-            <td>
-              <a href="/service8">
-                <img src={service8Img} alt="service8" className="image" /><br/><br/>
-                <p className="ser">ACCIDENT REPAIRS</p>
-              </a>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <a href="/service9">
-                <img src={service9Img} alt="service9" className="image" /><br/><br/>
-                <p className="ser">GENERAL WASH</p>
-              </a>
-            </td>
-            <td>
-              <a href="/service10">
-                <img src={service10Img} alt="service10" className="image" /><br/><br/>
-                <p className="ser">GENERAL WASH WITH INTERIOR DETAILING</p>
-              </a>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <a href="/service11">
-                <img src={service11Img} alt="service11" className="image" /><br/><br/>
-                <p className="ser">NANO TREATMENT</p>
-              </a>
-            </td>
-            <td>
-              <a href="/service12">
-                <img src={service12Img} alt="service12" className="image" /><br/><br/>
-                <p className="ser">LUBE SERVICES</p>
-              </a>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <a href="/service13">
-                <img src={service13Img} alt="service13" className="image" /><br/><br/>
-                <p className="ser">ENGINE TUNE-UPS</p>
-              </a>
-            </td>
-            <td>
-              <a href="/service14">
-                <img src={service14Img} alt="service14" className="image" /><br/><br/>
-                <p className="ser">UNDER CARRIAGE WASHES</p>
-              </a>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  );
+export default function Courses() {
+    const [courses, setCourses] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+
+    useEffect(() => {
+        getCourses();
+    }, []);
+
+    const getCourses = async () => {
+        setLoading(true); // Start loading when fetching begins
+    
+        try {
+            const response = await axios.get('http://localhost/Backend/api/service.php/');
+            console.log('API Response:', response.data);
+            
+            if (Array.isArray(response.data)) {
+                setCourses(response.data);
+            } else {
+                console.error('Unexpected response data format:', response.data);
+                // Show error popup for unexpected data format
+                await Swal.fire({
+                    title: 'Error',
+                    text: 'Unexpected response data format received.',
+                    icon: 'error',
+                    confirmButtonText: 'OK',
+                });
+                setCourses([]);
+            }
+        } catch (error) {
+            console.error('Error fetching service:', error);
+            // Show error popup for API fetch failure
+            await Swal.fire({
+                title: 'Error',
+                text: 'Failed to fetch services. Please check your connection or try again later.',
+                icon: 'error',
+                confirmButtonText: 'OK',
+            });
+            setError(error);
+        } finally {
+            setLoading(false); // Stop loading after fetch completes
+        }
+    };
+
+    if (loading) return <p>Loading...</p>;
+    if (error) return <p>Error fetching courses!</p>;
+
+    return (
+        <div>
+            <h1 className='text-center my-5'>Our Services</h1>
+            <div className='container align-items-center'>
+                <div className='row '>
+                    {courses.map((course) => (
+                        <div className='col-md-6 mb-5' key={course.id}>
+                            <div >
+                                <div className="thumbnail">
+                                    
+                                    <div className="img-container mt-5">
+                                    <Link to={`/services/${course.id}`} >
+                                        <img 
+                                            src={`http://localhost/Backend/images/${course.serviceId}/${course.image1}`}
+                                            className="img-fluid career-image rounded custom-image align-items-center " 
+                                            alt={course.serviceName} 
+                                        />
+                                         </Link>
+                                        <div className="overlay"></div>
+                                    </div>
+                                </div>
+                                <div className="card-body">
+                                    <h5 className="card-title">{course.serviceName}</h5>
+                                  
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </div>
+    );
 }
-
-export default Services;

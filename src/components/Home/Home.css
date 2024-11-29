@@ -17,13 +17,17 @@ body {
   margin: 20px 0;
   padding: 15px 40px;
   background-color: rgb(171, 166, 166);
-  color: #fff;
+  color: #000;
   border: none;
   cursor: pointer;
   border-radius: 20px;
   font-size: 22px;
   transition: transform 0.3s ease;
+  text-decoration: none;
 }
+
+
+
 
 .book-now:hover {
   background-color: #000;
@@ -36,10 +40,10 @@ main h3 {
   font-size: 40px;
 }
 
-button {
+/* button {
   display: block;
   margin: 0 auto;
-}
+} */
 
 .content {
   display: flex;

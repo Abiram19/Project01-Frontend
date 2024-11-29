@@ -1,28 +1,26 @@
+import React, { useState } from "react";
 import "./usersidebar.css";
 import {
   BookOnline,
   LineStyle,
-  Timeline,
-  TrendingUp,
-  School,
-  Work,
-  ContactMail,
-  Badge,
-  SensorOccupied,
-  People,
-  AccountBox,
 } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 
 export default function UserSidebar() {
+  const [activeItem, setActiveItem] = useState("BookService");
+
+  const handleItemClick = (item) => {
+    setActiveItem(item);
+  };
+
   return (
     <div className="sidebar">
       <div className="sidebarWrapper">
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">Booking</h3>
           <ul className="sidebarList">
-            <Link to="/User" className="link">
-              <li className="sidebarListItem active">
+            <Link to="/User" className="link" onClick={() => handleItemClick("BookService")}>
+            <li className={`sidebarListItem ${activeItem === "BookService" ? "active" : ""}`}>
                 <LineStyle className="sidebarIcon" />
                 Book A Service
               </li>
@@ -31,12 +29,12 @@ export default function UserSidebar() {
         </div>
 
         <div className="sidebarMenu">
-          <h3 className="sidebarTitle">Your Reservation</h3>
+          <h3 className="sidebarTitle">Refund</h3>
           <ul className="sidebarList">
-            <Link to="/User/ReservationInfo" className="link">
-              <li className="sidebarListItem">
+            <Link to="/User/ReservationInfo" className="link" onClick={() => handleItemClick("ReservationInfo")}>
+            <li className={`sidebarListItem ${activeItem === "ReservationInfo" ? "active" : ""}`}>
                 <BookOnline className="sidebarIcon" />
-                Reservation Info
+                Refund Policy
               </li>
             </Link>
           </ul>

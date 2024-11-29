@@ -14,13 +14,13 @@
 
 .navbar-brand {
   font-weight: 500;
-  color: #da1727;
+  color: #d80606;
   font-size: 24px;
   transition: 0.3s color;
 }
 
 .login-button {
-  background-color: #da1727;
+  background-color: #d80606;
   color: #fff;
   font-size: 14px;
   padding: 8px 20px;
@@ -48,14 +48,14 @@
 }
 
 .nav-link {
-  color: #90919d;
+  color: #000;
   font-weight: 500;
   position: relative;
 }
 
 .nav-link:hover,
 .nav-link:active {
-  color: #000;
+  color: #90919d;
 }
 
 @media (min-width: 991px) {

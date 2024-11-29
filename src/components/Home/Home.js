@@ -11,7 +11,7 @@ import "./Home.css";
 const Home = () => {
   return (
     <main>
-      <div className="button-container">
+      <div className="button-container" >
         <Link to="/LoginRegister" className="book-now">
           Book Now
         </Link>

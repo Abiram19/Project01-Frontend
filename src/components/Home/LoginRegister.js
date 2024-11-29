@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { FaUser, FaLock, FaEnvelope } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import Swal from 'sweetalert2';
 import axios from "axios";
 import "./LoginRegister.css";
 
@@ -43,18 +44,19 @@ const LoginRegister = () => {
   };
 
   const validatePassword = (password) => {
-    const passwordRegex =
-      /^(?=.*[a-z])(?=.*[A-Z])(?=.*[@!?\/_\-])[A-Za-z\d@!?\/_\-]{8,20}$/;
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[@!?/_-])[A-Za-z\d@!?/_-]{8,20}$/;
     return passwordRegex.test(password);
   };
+  
 
-  const handleRegister = async (e) => {
+const handleRegister = async (e) => {
     e.preventDefault();
     const { user, email, pass, cpass } = formData;
 
+    // Validate the form data
     if (!validateUsername(user)) {
       setFormError(
-        "Username must be between 6 and 20 characters and may include letters, numbers, @, and _."
+        "Username must be between 4 and 20 characters and may include letters, numbers, @, and _."
       );
       return;
     }
@@ -98,51 +100,97 @@ const LoginRegister = () => {
           cpass: "",
           rememberMe: false,
         });
-        alert("Registration successful!");
+
+        // SweetAlert2 popup for successful registration
+        await Swal.fire({
+          title: 'Registration Successful!',
+          text: 'You have successfully registered.',
+          icon: 'success',
+          confirmButtonText: 'OK'
+        });
+
         navigate("/LoginRegister");
       }
     } catch (error) {
       console.error("There was an error!", error);
       setFormError("An error occurred during registration. Please try again.");
     }
-  };
+};
 
-  const handleLogin = async (e) => {
-    e.preventDefault();
-    const { user, pass, rememberMe } = formData;
 
-    if (!user || !pass) {
-      setFormError("Username and Password are required.");
-      return;
-    }
+const handleLogin = async (e) => {
+  e.preventDefault();
+  const { user, pass, rememberMe } = formData;
 
-    try {
-      const response = await axios.post(
-        "http://localhost/Backend/login.php",
-        { user, pass, rememberMe },
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
+  if (!user || !pass) {
+    setFormError("Username and Password are required.");
+    return;
+  }
 
-      if (response.data.error) {
-        setFormError(response.data.error);
-      } else {
-        setFormError("");
-        alert("Login successful!");
+  try {
+    const response = await axios.post(
+      "http://localhost/Backend/login.php",
+      { user, pass, rememberMe },
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+
+    // Check the success status
+    if (response.data.success === 0) {
+      // Display error popup without the loading style
+      Swal.fire({
+        title: 'Login Failed',
+        text: response.data.error,
+        icon: 'error',
+        confirmButtonText: 'Try Again',
+        confirmButtonColor: '#e74c3c',
+      });
+    } else {
+      console.log(response.data.userrole)
+      // Successful login
+      setFormError("");
+      sessionStorage.setItem("username", user);
+      sessionStorage.setItem("user-role", response.data.userrole);
+
+      const sessionUsername = sessionStorage.getItem("username");
+
+      // Display success popup without the loading style
+      Swal.fire({
+        title: 'Login Successful!',
+        html: `Welcome back, <strong>${sessionUsername}</strong>!`,
+        icon: 'success',
+        confirmButtonText: 'Continue',
+        confirmButtonColor: '#28a745',
+      }).then(() => {
+        // Navigate based on user role
         if (response.data.userrole === "admin") {
           navigate("/admin");
-        } else {
+        } else if (response.data.userrole === "user") {
           navigate("/User");
+        } else {
+          navigate("/Default");
         }
-      }
-    } catch (error) {
-      console.error("There was an error!", error);
-      setFormError("An error occurred during login. Please try again.");
+      });
     }
-  };
+  } catch (error) {
+    console.error("There was an error!", error);
+
+    // Display error popup for unexpected errors without the loading style
+    Swal.fire({
+      title: 'Login Error!',
+      text: 'An error occurred during login. Please try again.',
+      icon: 'error',
+      confirmButtonText: 'Retry',
+      confirmButtonColor: '#e74c3c',
+    });
+  }
+};
+
+
+  
 
   return (
     <div className="body">
@@ -190,6 +238,14 @@ const LoginRegister = () => {
                 Don't have an account?{" "}
                 <a href="#" onClick={registerLink}>
                   Register
+                </a>
+              </p>
+            </div>
+            <div className="register-link">
+              <p>
+                
+                <a href="/emLogin" >
+                  Login as Employee
                 </a>
               </p>
             </div>
